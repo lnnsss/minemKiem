@@ -12,12 +12,9 @@
     --grey: #808080;
     --black: #000000;
     --main: #19221A;
+    --dropShadow: 0px 4px 20px rgba(0, 0, 0, 0.25);;
 }
 
-/* плавный скролл для всех якорей */
-html {
-    scroll-behavior: smooth; /* [web:129][web:130] */
-}
 
 /*----main-------------------------------------------*/
 
@@ -44,6 +41,12 @@ p {
     font-weight: inherit;
     font-size: inherit;
     font-family: inherit;
+}
+img {
+    user-select: none;
+}
+html {
+    scroll-behavior: smooth;
 }
 body {
     font-size: 16px;
@@ -85,6 +88,7 @@ button:active {
     font-size: 36px;
     font-weight: 600;
     font-family: var(--mainFont);
+    text-align: center;
 }
 
 /*----hero-------------------------------------------*/
@@ -143,6 +147,8 @@ button:active {
 .header__logo {
     width: 230px;
     height: 30px;
+    position: relative;
+    z-index: 1200;
 }
 .header__nav {}
 .header__ul {
@@ -195,7 +201,7 @@ button:active {
     font-weight: 700;
     text-align: center;
 }
-.hero__text h2 {
+.hero__text h3 {
     font-size: 24px;
     font-weight: 500;
     text-align: center;
@@ -238,66 +244,418 @@ button:active {
 
 /*----about-------------------------------------------*/
 
-.about {
-    height: 800px;
-}
+.about {}
 .about__container {
-
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.about__block {
+    display: flex;
+    align-items: stretch;
+    gap: 20px;
+}
+.about__block-2, .about__block-4 {
+    flex-direction: row-reverse;
+}
+.about__block__text {
+    padding: 40px 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--main);
+    color: var(--white);
+    border-radius: 40px;
+    text-align: center;
+}
+.about__block__text p {
+    font-size: 16px;
+    font-weight: 500;
+}
+.about__block__image {
+    height: 680px;
+    border-radius: 40px;
 }
 
 /*----advantages-------------------------------------------*/
 
-.advantages {
-}
+.advantages {}
 .advantages__container {
-
+    padding: 60px 20px 80px 20px;
+    max-width: 1164px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.advantages__blocks {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.advantages__block {
+    padding: 20px;
+    width: 335px;
+    height: 174px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border-radius: 20px;
+    background-color: var(--white);
+    box-shadow: var(--dropShadow);
+    transition: 0.5s ease;
+}
+.advantages__block:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.03), var(--white));
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+.advantages__block h3 {
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
+.advantages__block p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey);
+    text-align: center;
 }
 
 /*----team-------------------------------------------*/
 
 .team {
+    background-color: var(--main);
 }
 .team__container {
-
+    padding: 80px 20px;
+    max-width: 1164px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.team__container .title {
+    color: var(--white);
+}
+.team__cards {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.team__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--white);
+    padding: 34px 15px 68px 15px;
+    transform-origin: top center;
+}
+.team__card:hover {
+    animation: card-swing 0.5s ease-out;
+}
+@keyframes card-swing {
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(0.5deg); }
+    50%  { transform: rotate(-0.5deg); }
+    75%  { transform: rotate(0.25deg); }
+    100% { transform: rotate(0deg); }
+}
+.team__card-photo {}
+.team__card-text {
+    padding: 15px;
+    width: 261px;
+    height: 410px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.team__card-text p {
+    font-size: 14px;
+    font-weight: 500;
+}
+.team__card__pin {
+    position: absolute;
+    top: 2px;
+    height: 24px;
+    width: 20px;
+}
+.team__card__photo {
+    width: 231px;
+    height: 308px;
+}
+.team__card__name {
+    position: absolute;
+    bottom: 0;
+    font-family: var(--secondFont);
+    font-size: 48px;
+    font-weight: 400;
 }
 
 /*----reviews-------------------------------------------*/
 
-.reviews {
-}
+.reviews {}
 .reviews__container {
-
+    padding: 80px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+.reviews__blocks {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+}
+.reviews__block {
+    background-color: var(--white);
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 20px;
+    box-shadow: var(--dropShadow);
+    transition: 0.5s ease;
+}
+.reviews__block:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: radial-gradient(circle at top left, rgba(0, 0, 0, 0.03), var(--white));
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+}
+.reviews__block__header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.reviews__block__avatar {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.reviews__block__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.reviews__block__name {
+    font-size: 20px;
+    font-weight: 600;
+}
+.reviews__block__stars {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.reviews__block__text {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey);
 }
 
 /*----write-------------------------------------------*/
 
-.write {
-}
+.write {}
 .write__container {
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+.write__content {
+    width: 100%;
+    height: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    background-image:
+            linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url("./public/images/bg2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 60px;
+    color: var(--white);
+    padding: 40px;
+    gap: 240px;
+}
+.write__content h2 {
+    font-size: 64px;
+    font-weight: 700;
+    text-align: center;
+}
+.write__content a {
+    font-size: 20px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    transition: 0.5s ease;
+}
+.write__content a:hover {
+    background-color: var(--white);
+    color: var(--black);
 }
 
 /*----questions-------------------------------------------*/
 
-.questions {
-
-}
+.questions {}
 .questions__container {
-
+    padding: 60px 20px 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
+.questions__blocks {
+    width: 100%;
+    max-width: 1164px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.questions__item {
+    background-color: var(--main);
+    border-radius: 20px;
+    overflow: hidden;
+}
+.questions__header {
+    width: 100%;
+    padding: 18px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--white);
+    font: inherit;
+}
+.questions__question {
+    text-align: left;
+    font-size: 20px;
+    font-weight: 600;
+}
+.questions__icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+.questions__icon span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 2px;
+    background-color: var(--white);
+    border-radius: 999px;
+    transform-origin: center;
+    transition: transform 0.25s ease;
+}
+.questions__icon span:first-child {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+.questions__icon span:last-child {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+.questions__content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 32px;
+    transition: max-height 0.35s ease, padding-top 0.25s ease, padding-bottom 0.25s ease;
+}
+.questions__content p {
+    margin: 0 0 18px 0;
+    color: var(--white);
+    line-height: 1.4;
+    font-size: 16px;
+    font-weight: 500;
+}
+.questions__item--active {
+    border-radius: 30px;
+}
+.questions__item--active .questions__content {
+    padding-top: 10px;
+    padding-bottom: 18px;
+    max-height: 300px;
+}
+.questions__item--active .questions__icon span:first-child {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+.questions__item--active .questions__icon span:last-child {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
 /*----footer-------------------------------------------*/
 
 .footer {
-
+    background-color: var(--main);
 }
 .footer__container {
-
+    padding: 60px 20px 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.footer__left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.footer__logo {
+    height: 30px;
+    width: 230px;
+}
+.footer__left span {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey);
+}
+.footer__logo-desktop {}
+.footer__logo-mobile {
+    display: none;
+}
+.footer__right {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+.footer__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer__ul h5 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--white);
+}
+.footer__li {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--grey);
 }
 
 /*----media-------------------------------------------*/
 
 /*----tablet----*/
-@media (max-width: 1024px) {
+@media (max-width: 1124px) {
 
     /*----hero-------------------------------------------*/
 
@@ -336,11 +694,147 @@ button:active {
     .hero__text h1 {
         font-size: 64px;
     }
-    .hero__text h2 {
+    .hero__text h3 {
         font-size: 20px;
     }
     .hero__arrowBtn {
         display: none;
+    }
+
+    /*----about-------------------------------------------*/
+
+    .about__block {
+        flex-direction: column;
+    }
+    .about__block-2, .about__block-4 {
+        flex-direction: column;
+    }
+    .about__block__image {
+        height: auto;
+        width: 100%;
+    }
+    .about__block__text {
+        padding: 60px;
+    }
+
+    /*----advantages-------------------------------------------*/
+
+    .advantages__blocks {
+        flex-direction: column;
+    }
+    .advantages__block {
+        width: 100%;
+        height: auto;
+    }
+
+    /*----team-------------------------------------------*/
+
+    .team__container {
+        padding: 20px 60px;
+    }
+    .team__cards {
+        justify-content: center;
+        gap: 40px;
+    }
+    .team__card {
+        padding: 20px 15px 45px 15px;
+    }
+    .team__card-text {
+        display: none;
+    }
+    .team__card__pin {
+        top: 0px;
+        height: 20px;
+        width: 17px;
+    }
+    .team__card__photo {
+        width: 188px;
+        height: 250px;
+    }
+    .team__card__name {
+        font-size: 36px;
+    }
+
+    /*----reviews-------------------------------------------*/
+
+    .reviews__container {
+        padding: 60px 20px 40px 20px;
+    }
+    .reviews__blocks {
+        flex-direction: column;
+    }
+    .reviews__block {
+        width: 100%;
+    }
+
+    /*----write-------------------------------------------*/
+
+    .write__content {
+        height: 500px;
+        padding: 20px;
+        gap: 120px;
+    }
+    .write__content h2 {
+        font-size: 48px;
+    }
+
+    /*----questions-------------------------------------------*/
+
+    .questions__container {
+        padding: 40px 20px 60px 20px;
+    }
+
+    /*----footer-------------------------------------------*/
+
+    .footer__container {
+        padding: 40px 20px 40px 20px;
+        flex-direction: column-reverse;
+        justify-content: start;
+        gap: 40px;
+    }
+    .footer__left {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+    .footer__logo-desktop {
+        display: none;
+    }
+    .footer__logo-mobile {
+        display: block;
+    }
+    .footer__logo {
+        height: 30px;
+        width: 230px;
+    }
+    .footer__left span {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--grey);
+    }
+    .footer__logo-desktop {}
+    .footer__right {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .footer__ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .footer__ul h5 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--white);
+    }
+    .footer__li {
+        font-size: 16px;
+        font-weight: 500;
+        color: var(--grey);
     }
 }
 
@@ -368,7 +862,136 @@ button:active {
     .hero__text h1 {
         font-size: 40px;
     }
-    .hero__text h2 {
+    .hero__text h3 {
         font-size: 16px;
     }
+
+    /*----about-------------------------------------------*/
+
+    .about__container {
+        padding: 20px 15px;
+    }
+    .about__block__image {
+        height: auto;
+        width: 100%;
+        border-radius: 20px;
+    }
+    .about__block__text {
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .about__block__text p {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    /*----advantages-------------------------------------------*/
+
+    .advantages__container {
+        padding: 20px 15px 40px 15px;
+        gap: 20px;
+    }
+    .advantages__blocks {
+        gap: 20px;
+    }
+    .advantages__block h3 {
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .advantages__block p {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    /*----team-------------------------------------------*/
+
+    .team__container {
+        padding: 15px 40px;
+        gap: 20px;
+    }
+    .team__cards {
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        gap: 20px;
+    }
+    .team__card {
+        padding: 20px 15px 45px 15px;
+    }
+
+    /*----reviews-------------------------------------------*/
+
+    .reviews__container {
+        padding: 40px 15px 20px 15px;
+    }
+    .reviews__block__avatar {
+        height: 50px;
+        width: 50px;
+    }
+    .reviews__block__name {
+        font-size: 16px;
+        font-weight: 600;
+    }
+    .reviews__block__text {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    /*----write-------------------------------------------*/
+
+    .write__container {
+        padding: 20px 15px;
+    }
+    .write__content {
+        gap: 150px;
+    }
+    .write__content h2 {
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .write__content a {
+        font-size: 16px;
+    }
+
+    /*----questions-------------------------------------------*/
+
+    .questions__container {
+        padding: 20px 15px 40px 15px;
+        gap: 20px;
+    }
+    .questions__item {
+        padding: 10px;
+    }
+    .questions__header {
+        padding: 10px;
+    }
+    .questions__content {
+        padding: 0px 10px;
+    }
+    .questions__question {
+        font-size: 16px;
+    }
+    .questions__content p {
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    /*----footer-------------------------------------------*/
+
+    .footer__container {
+        padding: 40px 15px 40px 15px;
+    }
+    .footer__left span {
+        font-size: 14px;
+        text-align: center;
+    }
+    .footer__right {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer__ul {
+        text-align: center;
+    }
+
 }
