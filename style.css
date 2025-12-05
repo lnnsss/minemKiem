@@ -923,6 +923,7 @@ button:active {
 
     .reviews__container {
         padding: 40px 15px 20px 15px;
+        gap20
     }
     .reviews__block__avatar {
         height: 50px;
